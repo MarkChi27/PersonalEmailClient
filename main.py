@@ -49,10 +49,45 @@ class MyGUI(QMainWindow):
             message_box.exec()
 
     def attachFile(self):
-        pass
+        options = QFileDialog.Option.ReadOnly | QFileDialog.Option.DontUseNativeDialog
+        filenames, _ = QFileDialog.getOpenFileNames(self, "Open File", "", "All Files (*.*)", options=options)
+        if filenames != []:
+            for filename in filenames:
+                attachment = open(filename, 'rb')
+                filename = filename[filename.rfind("/")+1:]
+
+                p = MIMEBase('application', 'octet-stream')
+                p.set_payload(attachment.read())
+                encoders.encode_base64(p)
+                p.add_header("Content-Disposition", f"attachment; filename={filename}")
+                self.msg.attach(p)
+                if not self.attachments.text().endswith(":"):
+                    self.attachments.setText(self.attachments.text() + ",")
+                self.attachments.setText(self.attachments.text() + " " + filename)
 
     def sendEmail(self):
-        pass
+        button = QMessageBox.question(
+            self,
+            "Question",
+            "Do you wish to send this email?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
+        if button == QMessageBox.StandardButton.Yes:
+            try:
+                self.msg['From'] = "Jason Yang"
+                self.msg['To'] = self.to.text()
+                self.msg['Subject'] = self.subject.text()
+                self.msg.attach(MIMEText(self.mainContent.toPlainText(), 'plain'))
+                text = self.msg.as_string()
+                self.server.sendmail(self.emailAddress.text(), self.to.text(), text)
+
+                message_box = QMessageBox()
+                message_box.setText("Email has been sent!")
+                message_box.exec()
+            except:
+                message_box = QMessageBox()
+                message_box.setText("Failed to send email!")
+                message_box.exec()
 
 app = QApplication([])
 window = MyGUI()
