@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="emailAddress">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -50,7 +50,7 @@
      <string>Password:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="password">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -76,7 +76,7 @@
      <string>SMTP Sever:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="smtpServer">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -99,7 +99,7 @@
      <string>Port:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="port">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -109,7 +109,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="userLogin">
     <property name="geometry">
      <rect>
       <x>480</x>
@@ -138,7 +138,7 @@
      <string>To:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
+   <widget class="QLineEdit" name="to">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -164,7 +164,7 @@
      <string>Subject:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_6">
+   <widget class="QLineEdit" name="subject">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -177,7 +177,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="addAttachment">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -209,7 +209,7 @@
      <string>Main Content:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="mainContent">
     <property name="enabled">
      <bool>false</bool>
     </property>
@@ -222,7 +222,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="attachments">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -238,7 +238,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="send">
     <property name="enabled">
      <bool>false</bool>
     </property>
